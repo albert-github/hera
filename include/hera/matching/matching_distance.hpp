@@ -700,8 +700,8 @@ namespace md {
             // compute distance in all dimensions, return maximal
             result = -1;
             for(int dim = 0; dim < std::max(bif_a.maximal_dim(), bif_b.maximal_dim()); ++dim) {
-                BifiltrationProxy<R> bifp_a(bif_a, params.dim);
-                BifiltrationProxy<R> bifp_b(bif_a, params.dim);
+                BifiltrationProxy<R> bifp_a(bif_a, dim);
+                BifiltrationProxy<R> bifp_b(bif_a, dim);
                 DistanceCalculator<R, BifiltrationProxy<R>> runner(bifp_a, bifp_b, params);
                 result = std::max(result, runner.distance());
                 params.n_hera_calls += runner.get_hera_calls_number();
